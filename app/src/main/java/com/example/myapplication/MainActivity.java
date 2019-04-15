@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
         public void OnTextClick(View v){
-            TextView text = (TextView) findViewById(R.id.text);
-            text.setText("You suck!");
+            TextView text = findViewById(R.id.text);
+            text.setText(getString(R.string.Text1));
         }
 
 }
