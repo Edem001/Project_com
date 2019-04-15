@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         public void OnTextClick(View v){
             TextView text = findViewById(R.id.text);
             text.setText(getString(R.string.Text1));
+            text.setEnabled(false);
         }
 
 }
