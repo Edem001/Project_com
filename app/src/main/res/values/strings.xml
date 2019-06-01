@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ToDo List</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="mark_as_completed">Mark as completed</string>
+    <string name="reset">Reset</string>
+    <string name="info">Info</string>
+    <string name="preferences">Preferences</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="aboutUS" translatable="false">Greetings, dear user. We are group of developers-novices from Lviv Politechnic National
+        University (Ukraine).
+        Our group: Rubakha Danylo(talks too much), Atamuratov Edem(poor coder, which was a person. who were given
+        inspiration to whole team), Mykhailiuk
+        Volodymyr(he helped us very much, found some open-source libraries), Andriy Mykytyn(our animator, do not worry,
+        you will not see his animation in this program,
+        at least, while i am typing this) and finally, Pavlo Furd(he is out secret weapon). We are students from CS-105
+        grop. Thank you for reading this article.
+    </string>
+</resources>

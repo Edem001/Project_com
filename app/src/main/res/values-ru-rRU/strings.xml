@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Список мазохиста</string>
+    <string name="reset">Сбросить</string>
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
+    <string name="mark_as_completed">Пометить выполненым</string>
+    <string name="info">Информация</string>
+    <string name="preferences">Настройки</string>
+    <string name="dashboard">Задачи</string>
+</resources>

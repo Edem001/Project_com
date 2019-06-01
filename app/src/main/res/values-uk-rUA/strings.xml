@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Мемний список</string>
+    <string name="reset">Скинути</string>
+    <string name="edit">Редагувати</string>
+    <string name="delete">Видалити</string>
+    <string name="mark_as_completed">Помітити виконаним</string>
+    <string name="info">Информація</string>
+    <string name="preferences">Налаштування</string>
+    <string name="dashboard">Задачі</string>
+</resources>
