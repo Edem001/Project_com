@@ -31,7 +31,7 @@ public class DBHandler extends SQLiteOpenHelper {
                         COL_CREATED_AT + " datetime DEFAULT CURRENT_TIMESTAMP," +
                         COL_TODO_ID + " integer," +
                         COL_ITEM_NAME + " varchar," +
-                        COL_IS_COLPLETED + " integer)";
+                        COL_IS_COMPLETED + " integer)";
 
         db.execSQL(createToDoTable);
         db.execSQL(createToDoItemTable);
@@ -85,7 +85,7 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put(COL_ITEM_NAME, item.getItemName());
         cv.put(COL_TODO_ID, item.getToDoId());
-        cv.put(COL_IS_COLPLETED, item.isCompleted());
+        cv.put(COL_IS_COMPLETED, item.isCompleted());
         db.update(TABLE_TODO_ITEM, cv, COL_ID + "=?", new String[]{String.valueOf(item.getId())});
     }
 
@@ -110,7 +110,7 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put(COL_ITEM_NAME, item.getItemName());
         cv.put(COL_TODO_ID, item.getToDoId());
-        cv.put(COL_IS_COLPLETED, item.isCompleted());
+        cv.put(COL_IS_COMPLETED, item.isCompleted());
 
         long result = db.insert(TABLE_TODO_ITEM, null, cv);
         return result != -1;
@@ -132,7 +132,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 item.setId(queryResult.getLong(queryResult.getColumnIndex(COL_ID)));
                 item.setToDoId(queryResult.getLong(queryResult.getColumnIndex(COL_TODO_ID)));
                 item.setItemName(queryResult.getString(queryResult.getColumnIndex(COL_ITEM_NAME)));
-                item.setCompleted(queryResult.getInt(queryResult.getColumnIndex(COL_IS_COLPLETED)) == 1);
+                item.setCompleted(queryResult.getInt(queryResult.getColumnIndex(COL_IS_COMPLETED)) == 1);
                 result.add(item);
             } while (queryResult.moveToNext());
         }

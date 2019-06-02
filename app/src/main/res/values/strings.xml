@@ -8,9 +8,10 @@
     <string name="info">Info</string>
     <string name="preferences">Preferences</string>
     <string name="dashboard">Dashboard</string>
-    <string name="aboutUS" translatable="false">Greetings, dear user. We are group of developers-novices from Lviv Politechnic National
+    <string name="aboutUS" translatable="false">Greetings, dear user. We are group of developers-novices from Lviv
+        Politechnic National
         University (Ukraine).
-        Our group: Rubakha Danylo(talks too much), Atamuratov Edem(poor coder, which was a person. who were given
+        Our group: Rubakha Danylo(talks too much), Atamuratov Edem(poor coder, which was a person, who were given
         inspiration to whole team), Mykhailiuk
         Volodymyr(he helped us very much, found some open-source libraries), Andriy Mykytyn(our animator, do not worry,
         you will not see his animation in this program,

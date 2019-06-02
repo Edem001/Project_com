@@ -1,9 +1,12 @@
 package com.example.students.todolist;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Paint;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -54,6 +57,10 @@ public class DashboardActivity extends AppCompatActivity {
         dbHandler = new DBHandler(activity);
         rv_dashboard.setLayoutManager(new LinearLayoutManager(activity));
 
+        dashboard_toolbar.setBackgroundColor(COLORS.getColorSecondary());
+        fab_dashboard.setBackgroundTintList(ColorStateList.valueOf(COLORS.getColorSecondary()));
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            tintStatusBar();
 
         fab_dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -260,5 +267,9 @@ public class DashboardActivity extends AppCompatActivity {
                 return this;
             }
         }
+    }
+    @TargetApi(21)
+    void tintStatusBar() {
+        getWindow().setStatusBarColor(COLORS.getColorSecondary());
     }
 }

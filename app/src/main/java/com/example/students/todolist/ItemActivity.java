@@ -1,6 +1,9 @@
 package com.example.students.todolist;
 
+import android.annotation.TargetApi;
 import android.content.DialogInterface;
+import android.content.res.ColorStateList;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -48,6 +51,11 @@ public class ItemActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getIntent().getStringExtra(INTENT_TODO_NAME));
         todoId = getIntent().getLongExtra(INTENT_TODO_ID, -1);
         activity = this;
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) tintStatusBar();
+        item_toolbar.setBackgroundColor(COLORS.getColorPrimary());
+        fab_item.setBackgroundTintList(ColorStateList.valueOf(COLORS.getColorSecondary()));
+
         dbHandler = new DBHandler(activity);
         rv_item.setLayoutManager(new LinearLayoutManager(activity));
 
@@ -236,5 +244,9 @@ public class ItemActivity extends AppCompatActivity {
                 move = v.findViewById(R.id.iv_move);
             }
         }
+    }
+    @TargetApi(21)
+    void tintStatusBar() {
+        getWindow().setStatusBarColor(COLORS.getColorSecondary());
     }
 }
