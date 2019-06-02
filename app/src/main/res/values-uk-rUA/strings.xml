@@ -8,4 +8,5 @@
     <string name="info">Информація</string>
     <string name="preferences">Налаштування</string>
     <string name="dashboard">Задачі</string>
+    <string name="return_to_default">Скинути</string>
 </resources>

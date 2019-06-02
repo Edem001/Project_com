@@ -99,6 +99,13 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onResume() {
         refreshList();
         super.onResume();
+        preferencesWorker pref = new preferencesWorker(getSharedPreferences("Color", MODE_PRIVATE),this);
+        COLORS.setColorPrimary(pref.loadPreferences(0));
+        COLORS.setColorSecondary(pref.loadPreferences(1));
+        COLORS.setColorAccent(pref.loadPreferences(2));
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) tintStatusBar();
+        dashboard_toolbar.setBackgroundColor(COLORS.getColorSecondary());
+        fab_dashboard.setBackgroundTintList(ColorStateList.valueOf(COLORS.getColorSecondary()));
     }
     void openNavLayout(View v){
         DrawerLayout drawer_layout = findViewById(R.id.drawer_layout);

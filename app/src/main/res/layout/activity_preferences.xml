@@ -77,13 +77,6 @@
                 android:layout_marginStart="0dp" android:layout_alignLeft="@+id/col_pick_button_accent"
                 android:layout_alignStart="@+id/col_pick_button_accent"
                 android:background = "@android:color/transparent"
-                android:hint="Set to default"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/restart_button" android:layout_marginLeft="0dp"
-                android:layout_marginStart="0dp" android:layout_alignLeft="@+id/defColor"
-                android:layout_alignStart="@+id/defColor" android:layout_marginTop="22dp"
-                android:background="@android:color/transparent"
-                android:layout_below="@+id/defColor" android:hint="Restart to apply changes"
-                android:enabled="true"/>
+                android:hint="@string/return_to_default"/>
+
 </RelativeLayout>

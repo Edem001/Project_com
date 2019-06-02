@@ -37,7 +37,7 @@ public class ItemActivity extends AppCompatActivity {
     ItemTouchHelper touchHelper;
     ItemAdapter adapter;
     ArrayList<ToDoItem> list;
-
+    int tempPrimaryColor, tempSecondaryColor, tempAccentColor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +107,6 @@ public class ItemActivity extends AppCompatActivity {
 
         touchHelper.attachToRecyclerView(rv_item);
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -121,6 +120,12 @@ public class ItemActivity extends AppCompatActivity {
     protected void onResume() {
         refreshList();
         super.onResume();
+            preferencesWorker pref = new preferencesWorker(getSharedPreferences("Color", MODE_PRIVATE),this);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) tintStatusBar();
+        item_toolbar.setBackgroundColor(COLORS.getColorPrimary());
+        fab_item.setBackgroundTintList(ColorStateList.valueOf(COLORS.getColorSecondary()));
+
+
     }
 
     void refreshList() {

@@ -18,13 +18,14 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView ic_logo;
     MainActivity activity;
+    int tempPrimaryColor, tempSecondaryColor, tempAccentColor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferencesWorker pref = new preferencesWorker(getSharedPreferences("Color", MODE_PRIVATE),this);
-        COLORS.setColorPrimary(pref.loadPreferences(Const.TAKE_PRIMARY));
-        COLORS.setColorSecondary(pref.loadPreferences(Const.TAKE_SECONDARY));
-        COLORS.setColorAccent(pref.loadPreferences(Const.TAKE_ACCENT));
+        tempPrimaryColor = COLORS.setColorPrimary(pref.loadPreferences(Const.TAKE_PRIMARY));
+        tempSecondaryColor = COLORS.setColorSecondary(pref.loadPreferences(Const.TAKE_SECONDARY));
+        tempAccentColor = COLORS.setColorAccent(pref.loadPreferences(Const.TAKE_ACCENT));
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             tintStatusBar();
 
@@ -53,4 +54,13 @@ public class MainActivity extends AppCompatActivity {
     void tintStatusBar() {
         getWindow().setStatusBarColor(COLORS.getColorSecondary());
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        preferencesWorker pref = new preferencesWorker(getSharedPreferences("Color", MODE_PRIVATE), this);
+        tempSecondaryColor = COLORS.setColorSecondary(pref.loadPreferences(Const.TAKE_SECONDARY));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            tintStatusBar();
+    }
+
 }
