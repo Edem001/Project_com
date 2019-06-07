@@ -15,7 +15,6 @@
             android:paddingStart="60dp"
             android:paddingLeft="60dp"
             app:title="@string/dashboard"
-
     />
 
 
@@ -37,11 +36,12 @@
             android:layout_margin="16dp"
             app:backgroundTint="@color/colorPrimaryDark"/>
     <Button
-            android:layout_width="51dp"
-            android:layout_height="wrap_content"
+            android:layout_width="43dp"
+            android:layout_height="40dp"
             android:background="@drawable/icon_menu"
-            android:id="@+id/imageView2" android:clickable="true"
-            android:onClick="openNavLayout"
-            android:layout_alignLeft="@+id/dashboard_toolbar" android:layout_marginTop="5dp"/>
+            android:id="@+id/imageView2"
+            android:layout_alignLeft="@+id/dashboard_toolbar"
+            android:layout_marginLeft="6dp" android:layout_alignTop="@+id/dashboard_toolbar"
+            android:layout_marginTop="6dp" android:clickable="true"/>
 
 </RelativeLayout>

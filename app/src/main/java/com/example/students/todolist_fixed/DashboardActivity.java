@@ -1,7 +1,6 @@
-package com.example.students.todolist;
+package com.example.students.todolist_fixed;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -10,9 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -22,18 +19,15 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.*;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.example.students.todolist.DTO.ToDo;
-import com.example.students.todolist.DTO.ToDoItem;
+import android.widget.*;
+import com.example.students.todolist_fixed.DTO.ToDo;
+import com.example.students.todolist_fixed.DTO.ToDoItem;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.example.students.todolist.Const.*;
+import static com.example.students.todolist_fixed.Const.*;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -56,6 +50,15 @@ public class DashboardActivity extends AppCompatActivity {
         activity = this;
         dbHandler = new DBHandler(activity);
         rv_dashboard.setLayoutManager(new LinearLayoutManager(activity));
+
+        Button openMenu = findViewById(R.id.imageView2);
+        openMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DrawerLayout drawer_layout = findViewById(R.id.drawer_layout);
+                drawer_layout.openDrawer(Gravity.START, true);
+            }
+        });
 
         dashboard_toolbar.setBackgroundColor(COLORS.getColorSecondary());
         fab_dashboard.setBackgroundTintList(ColorStateList.valueOf(COLORS.getColorSecondary()));
@@ -107,17 +110,15 @@ public class DashboardActivity extends AppCompatActivity {
         dashboard_toolbar.setBackgroundColor(COLORS.getColorSecondary());
         fab_dashboard.setBackgroundTintList(ColorStateList.valueOf(COLORS.getColorSecondary()));
     }
-    void openNavLayout(View v){
-        DrawerLayout drawer_layout = findViewById(R.id.drawer_layout);
-        drawer_layout.openDrawer(Gravity.START, true);
-    }
-    void preferences(MenuItem v){
+    public boolean preferences(MenuItem v){
         Intent intent = new Intent(activity, preferencesActivity.class);
         startActivity(intent);
+        return true;
     }
-    void aboutUS(MenuItem v){
+    public boolean aboutUS(MenuItem v){
         Intent intent = new Intent(activity, activityAboutUs.class);
         startActivity(intent);
+        return true;
     }
     void setChecked(DashboardAdapter.ViewHolder holder, ToDo todo, boolean isChecked) {
         Log.d("TABLE", "Trying " + todo.getName());

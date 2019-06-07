@@ -1,10 +1,6 @@
-package com.example.students.todolist;
+package com.example.students.todolist_fixed;
 import android.annotation.TargetApi;
-import android.app.AlarmManager;
-import android.app.Application;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
-import android.widget.Toolbar;
-import kotlin.Suppress;
 import yuku.ambilwarna.AmbilWarnaDialog;
-
-import static com.example.students.todolist.Const.TAKE_PRIMARY;
 
 public class preferencesActivity extends AppCompatActivity implements View.OnClickListener{
 

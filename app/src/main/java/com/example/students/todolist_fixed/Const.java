@@ -1,4 +1,4 @@
-package com.example.students.todolist;
+package com.example.students.todolist_fixed;
 
 public class Const {
     public static final String DB_NAME = "ToDoList";

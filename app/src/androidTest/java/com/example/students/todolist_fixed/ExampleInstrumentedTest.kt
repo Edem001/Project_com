@@ -1,4 +1,4 @@
-package com.example.students.todolist
+package com.example.students.todolist_fixed
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.example.students.todolist.DTO;
+package com.example.students.todolist_fixed.DTO;
 
 public class ToDoItem {
 

@@ -1,8 +1,7 @@
-package com.example.students.todolist;
+package com.example.students.todolist_fixed;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 public class preferencesWorker {

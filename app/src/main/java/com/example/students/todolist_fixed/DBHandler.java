@@ -1,16 +1,16 @@
-package com.example.students.todolist;
+package com.example.students.todolist_fixed;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.example.students.todolist.DTO.ToDo;
-import com.example.students.todolist.DTO.ToDoItem;
+import com.example.students.todolist_fixed.DTO.ToDo;
+import com.example.students.todolist_fixed.DTO.ToDoItem;
 
 import java.util.ArrayList;
 
-import static com.example.students.todolist.Const.*;
+import static com.example.students.todolist_fixed.Const.*;
 
 public class DBHandler extends SQLiteOpenHelper {
 

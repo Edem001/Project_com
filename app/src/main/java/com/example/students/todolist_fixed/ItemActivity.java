@@ -1,4 +1,4 @@
-package com.example.students.todolist;
+package com.example.students.todolist_fixed;
 
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
@@ -18,12 +18,12 @@ import android.view.*;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import com.example.students.todolist.DTO.ToDoItem;
+import com.example.students.todolist_fixed.DTO.ToDoItem;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static com.example.students.todolist.Const.*;
+import static com.example.students.todolist_fixed.Const.*;
 
 public class ItemActivity extends AppCompatActivity {
 
@@ -240,13 +240,13 @@ public class ItemActivity extends AppCompatActivity {
             ImageView edit;
             ImageView delete;
             ImageView move;
-
             ViewHolder(View v) {
                 super(v);
                 itemName = v.findViewById(R.id.cb_item);
                 edit = v.findViewById(R.id.iv_edit);
                 delete = v.findViewById(R.id.iv_delete);
                 move = v.findViewById(R.id.iv_move);
+                itemName.setButtonTintList(ColorStateList.valueOf(COLORS.getColorAccent()));
             }
         }
     }

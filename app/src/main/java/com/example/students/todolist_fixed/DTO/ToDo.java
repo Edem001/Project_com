@@ -1,4 +1,4 @@
-package com.example.students.todolist.DTO;
+package com.example.students.todolist_fixed.DTO;
 
 import java.util.ArrayList;
 import java.util.List;
