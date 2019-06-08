@@ -107,8 +107,6 @@ public class DashboardActivity extends AppCompatActivity {
         COLORS.setColorSecondary(pref.loadPreferences(1));
         COLORS.setColorAccent(pref.loadPreferences(2));
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) tintStatusBar();
-        LinearLayout layout_menu = findViewById(R.id.linear_layout_menu);
-        layout_menu.setBackgroundColor(COLORS.getColorAccent());
         dashboard_toolbar.setBackgroundColor(COLORS.getColorSecondary());
         fab_dashboard.setBackgroundTintList(ColorStateList.valueOf(COLORS.getColorSecondary()));
     }
