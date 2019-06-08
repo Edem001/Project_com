@@ -1,6 +1,7 @@
 package com.example.students.todolist_fixed;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import yuku.ambilwarna.AmbilWarnaDialog;
 
 public class preferencesActivity extends AppCompatActivity implements View.OnClickListener{
@@ -36,11 +38,13 @@ public class preferencesActivity extends AppCompatActivity implements View.OnCli
          secondary = findViewById(R.id.col_pick_button_secondary);
          accent = findViewById(R.id.col_pick_button_accent);
          defButton = findViewById(R.id.defColor);
+         TextView not_set = findViewById(R.id.notifySettings);
 
         primary.setOnClickListener(this);
         secondary.setOnClickListener(this);
         accent.setOnClickListener(this);
         defButton.setOnClickListener(this);
+        not_set.setOnClickListener(this);
 
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
@@ -77,7 +81,8 @@ public class preferencesActivity extends AppCompatActivity implements View.OnCli
                 findViewById(R.id.col_pick_button_secondary).setBackgroundColor(pref.loadPreferences(1));
                 findViewById(R.id.col_pick_button_accent).setBackgroundColor(pref.loadPreferences(2));
                 break;
-
+            case R.id.notifySettings:
+                startActivity(new Intent(this, notificationsSettings.class));
         }
 
     }

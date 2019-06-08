@@ -69,12 +69,12 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-                dialog.setTitle("Add ToDo");
+                dialog.setTitle(getResources().getString(R.string.add_title));
                 View view = getLayoutInflater().inflate(R.layout.dialog_dashboard, null);
                 final EditText toDoName = view.findViewById(R.id.ev_todo);
                 dialog.setView(view);
 
-                dialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                dialog.setPositiveButton(getResources().getString(R.string.add), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (toDoName.getText().toString().length() > 0) {
@@ -85,7 +85,7 @@ public class DashboardActivity extends AppCompatActivity {
                         }
                     }
                 });
-                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                dialog.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -107,6 +107,8 @@ public class DashboardActivity extends AppCompatActivity {
         COLORS.setColorSecondary(pref.loadPreferences(1));
         COLORS.setColorAccent(pref.loadPreferences(2));
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) tintStatusBar();
+        LinearLayout layout_menu = findViewById(R.id.linear_layout_menu);
+        layout_menu.setBackgroundColor(COLORS.getColorAccent());
         dashboard_toolbar.setBackgroundColor(COLORS.getColorSecondary());
         fab_dashboard.setBackgroundTintList(ColorStateList.valueOf(COLORS.getColorSecondary()));
     }
@@ -115,10 +117,20 @@ public class DashboardActivity extends AppCompatActivity {
         startActivity(intent);
         return true;
     }
-    public boolean aboutUS(MenuItem v){
+    public boolean aboutUS(MenuItem v) {
         Intent intent = new Intent(activity, activityAboutUs.class);
         startActivity(intent);
         return true;
+    }
+    static public boolean check = false;
+    boolean check_block = false;
+    void isAllChecked(boolean checker){
+        if(!checker) {
+            check_block = true;
+            check = false;
+        }else if(!check_block){
+            check = true;
+        }
     }
     void setChecked(DashboardAdapter.ViewHolder holder, ToDo todo, boolean isChecked) {
         Log.d("TABLE", "Trying " + todo.getName());
@@ -139,16 +151,17 @@ public class DashboardActivity extends AppCompatActivity {
                 }
             }
             setChecked(thisHolder.get(position),ar.get(position), checked);
+            isAllChecked(checked);
     }
 
     public void updateToDo(final ToDo toDo) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-        dialog.setTitle("Update ToDo");
+        dialog.setTitle(getResources().getString(R.string.update_todo));
         View view = getLayoutInflater().inflate(R.layout.dialog_dashboard, null);
         final EditText toDoName = view.findViewById(R.id.ev_todo);
         toDoName.setText(toDo.getName());
         dialog.setView(view);
-        dialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(getResources().getString(R.string.update), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (toDoName.getText().toString().length() > 0) {
@@ -158,7 +171,7 @@ public class DashboardActivity extends AppCompatActivity {
                 }
             }
         });
-        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -220,9 +233,9 @@ public class DashboardActivity extends AppCompatActivity {
                                 }
                                 case R.id.menu_delete: {
                                     AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-                                    dialog.setTitle("Are you sure");
-                                    dialog.setMessage("Do you want to delete this task ?");
-                                    dialog.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                                    dialog.setTitle(getResources().getString(R.string.are_u_sure));
+                                    dialog.setMessage(getResources().getString(R.string.delete_dial));
+                                    dialog.setPositiveButton(getResources().getString(R.string.continue_d), new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int t) {
                                             activity.dbHandler.deleteToDo(list.get(i).getId());
@@ -230,7 +243,7 @@ public class DashboardActivity extends AppCompatActivity {
                                             activity.refreshList();
                                         }
                                     });
-                                    dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    dialog.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
 

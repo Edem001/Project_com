@@ -9,4 +9,32 @@
     <string name="preferences">Налаштування</string>
     <string name="dashboard">Задачі</string>
     <string name="return_to_default">Скинути</string>
+    <string name="confirm_button">Підтвердити</string>
+    <string name="enable_notifications">Ввімкнути сповіщення</string>
+    <string name="preferences_notifications">Налаштування сповіщень</string>
+    <string name="data_saved">Дані збережено</string>
+    <string name="notification_title">Список задач</string>
+    <string name="notification_text">У Вас є невиконані плани. Будь ласка, перевірте Ваш список.</string>
+    <string name="add">Додати</string>
+    <string name="cancel">Скасувати</string>
+    <string name="add_title">Додати задачу</string>
+    <string name="update">Оновити</string>
+    <string name="update_todo">Оновити задачу</string>
+    <string name="delete_dial">Ви хочете видалити цю задачу?</string>
+    <string name="are_u_sure">Ви впевнені?</string>
+    <string name="continue_d">Продовжити</string>
+    <string name="add_title_item">Додати пункт</string>
+    <string name="update_todo_item">Оновити пункт</string>
+    <string name="delete_dial_todo">Ви хочете видалити цей пункт?</string>
+    <string name="time_chosen">Вибраний час</string>
+    <string name="aboutUS">Вітаю тебе, дорогий користувачу. Ми група студентів з Національного Університету \"Львівська
+        Політехніка\" (Україна). Наша група така: Рубаха Данило (занадто багато базікає), Атамуратов Едем (бідний кодер
+        - в прямому і переносному сенсі, який надихав своєю працею всю команду), Михайлюк Володимир (він дуже сильно нам
+        допоміг - знайшов трохи бібліотек з відкритим вихідним кодом, але кривих (…, &#8230;) щоб їх автор більше ніколи за
+        компеютер не сідав), Микитин Андрій (наш аніматор, не хвилюйтеся, його анімацією в цьому проекті навіть не
+        пахне, принаймні, поки я це пишу) і, нарешті, Фурдь Павло (наша секретна зброя). Ми студенти групи КН-105.
+        Величезне спасибі, що прочитали цю статтю.
+    </string>
+    <string name="Hello">Привіт</string>
+    <string name="side_menu">Це бокове меню</string>
 </resources>

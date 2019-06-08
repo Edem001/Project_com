@@ -1,9 +1,6 @@
 package com.example.students.todolist_fixed;
 
-import android.content.SharedPreferences;
-
 public class COLORS {
-    private SharedPreferences pref;
     private static int COLOR_PRIMARY ;
     private static int COLOR_SECONDARY;
     private static int COLOR_ACCENT;

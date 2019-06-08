@@ -8,5 +8,32 @@
     <string name="info">Информация</string>
     <string name="preferences">Настройки</string>
     <string name="dashboard">Задачи</string>
+    <string name="aboutUS">Здравствуй, дорогой пользователь. Мы группа студентов из Национального Университета
+        \"Львовская Политехника\" (Украина). Наша группа такова: Рубаха Данил (слишком много болтает), Атамуратов Эдем
+        (бедный кодер - в прямом и переносном смысле, который вдохновлял своим трудом всю команду), Михайлюк Владимир
+        (он очень сильно нам помог - нашел немного библиотек с открытым исходным кодом, но кривых (…, &#8230;) чтоб их автор больше
+        никогда за компэютер не садился), Микитин Андрей (наш аниматор, не волнуйтесь, его анимацией в этом проекте даже
+        не пахнет, по крайней мере, пока я это пишу) и, наконец, Фурдь Павел (наше секретное оружие). Мы студенты группы КН-105. Огромное спасибо, что прочитали эту статью.
+    </string>
     <string name="return_to_default">Сбросить</string>
+    <string name="confirm_button">Подтвердить</string>
+    <string name="enable_notifications">Включить оповещения</string>
+    <string name="preferences_notifications">Настройки оповещений</string>
+    <string name="data_saved">Данные сохранены</string>
+    <string name="notification_title">Ваш покорный слуга</string>
+    <string name="notification_text">У тебя чё, времени что-то сделать не хватает? А ну-ка ходь сюды!</string>
+    <string name="cancel">Отменить</string>
+    <string name="add">Добавить</string>
+    <string name="add_title">Добавить задачу</string>
+    <string name="update">Обновить</string>
+    <string name="update_todo">Обновить задачу</string>
+    <string name="delete_dial">Вы хотите удалить эту задачу?</string>
+    <string name="are_u_sure">Вы уверены?</string>
+    <string name="continue_d">Продолжить</string>
+    <string name="add_title_item">Добавить пункт</string>
+    <string name="update_todo_item">Обновить пункт</string>
+    <string name="delete_dial_todo">Вы хотите удалить этот пункт?</string>
+    <string name="time_chosen">Выбранное время</string>
+    <string name="Hello">Привет</string>
+    <string name="side_menu">Это боковое меню</string>
 </resources>

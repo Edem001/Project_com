@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             tintStatusBar();
 
+        pref = new preferencesWorker(getSharedPreferences("Notifications", MODE_PRIVATE),this);
+        TIME.setHour(pref.loadPreferences(0,1));
+        TIME.setMinute(pref.loadPreferences(1,1));
+        TIME.setChecker(pref.loadPreferences(2, true).equals("true"));
+        TIME.setContext(this);
 
         setContentView(R.layout.activity_main);
         activity = this;

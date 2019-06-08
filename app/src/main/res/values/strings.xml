@@ -8,7 +8,7 @@
     <string name="info">Info</string>
     <string name="preferences">Preferences</string>
     <string name="dashboard">Dashboard</string>
-    <string name="aboutUS" translatable="false">Greetings, dear user. We are group of developers-novices from Lviv
+    <string name="aboutUS">Greetings, dear user. We are group of developers-novices from Lviv
         Politechnic National
         University (Ukraine).
         Our group: Rubakha Danylo(talks too much), Atamuratov Edem(poor coder, which was a person, who were given
@@ -19,4 +19,24 @@
         grop. Thank you for reading this article.
     </string>
     <string name="return_to_default">Set to default</string>
+    <string name="confirm_button">Confirm</string>
+    <string name="enable_notifications">Enable notifications</string>
+    <string name="preferences_notifications">Notifications settings</string>
+    <string name="data_saved">Data saved</string>
+    <string name="notification_title">ToDoList</string>
+    <string name="notification_text">You have undone tasks. Please check your list.</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="add_title">Add ToDo</string>
+    <string name="update">Update</string>
+    <string name="update_todo">Update ToDo</string>
+    <string name="delete_dial">Do you want to delete this ToDo?</string>
+    <string name="are_u_sure">Are you sure?</string>
+    <string name="continue_d">Continue</string>
+    <string name="add_title_item">Add ToDo item</string>
+    <string name="update_todo_item">Update ToDo item</string>
+    <string name="delete_dial_todo">Do you want to delete this item?</string>
+    <string name="time_chosen">Time choosen</string>
+    <string name="Hello">Hello</string>
+    <string name="side_menu">This is side menu</string>
 </resources>

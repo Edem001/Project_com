@@ -63,11 +63,11 @@ public class ItemActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-                dialog.setTitle("Add ToDo Item");
+                dialog.setTitle(getResources().getString(R.string.add_title_item));
                 View view = getLayoutInflater().inflate(R.layout.dialog_dashboard, null);
                 final EditText toDoName = view.findViewById(R.id.ev_todo);
                 dialog.setView(view);
-                dialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                dialog.setPositiveButton(getResources().getString(R.string.add), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (toDoName.getText().toString().length() > 0) {
@@ -80,7 +80,7 @@ public class ItemActivity extends AppCompatActivity {
                         }
                     }
                 });
-                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                dialog.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -137,12 +137,12 @@ public class ItemActivity extends AppCompatActivity {
 
     void updateItem(final ToDoItem item) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-        dialog.setTitle("Update ToDo Item");
+        dialog.setTitle(getResources().getString(R.string.update_todo_item));
         View view = getLayoutInflater().inflate(R.layout.dialog_dashboard, null);
         final EditText toDoName = view.findViewById(R.id.ev_todo);
         toDoName.setText(item.getItemName());
         dialog.setView(view);
-        dialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(getResources().getString(R.string.update), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (toDoName.getText().toString().length() > 0) {
@@ -154,7 +154,7 @@ public class ItemActivity extends AppCompatActivity {
                 }
             }
         });
-        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -192,16 +192,16 @@ public class ItemActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
-                    dialog.setTitle("Are you sure");
-                    dialog.setMessage("Do you want to delete this item ?");
-                    dialog.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                    dialog.setTitle(getResources().getString(R.string.are_u_sure));
+                    dialog.setMessage(getResources().getString(R.string.delete_dial_todo));
+                    dialog.setPositiveButton(getResources().getString(R.string.continue_d), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int pos) {
                             activity.dbHandler.deleteToDoItem(list.get(i).getId());
                             activity.refreshList();
                         }
                     });
-                    dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    dialog.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
