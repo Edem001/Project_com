@@ -62,7 +62,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         dashboard_toolbar.setBackgroundColor(COLORS.getColorSecondary());
         fab_dashboard.setBackgroundTintList(ColorStateList.valueOf(COLORS.getColorSecondary()));
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             tintStatusBar();
 
         fab_dashboard.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,14 @@ public class DashboardActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
-
+    Button shopping_list = findViewById(R.id.shop_butt);
+    shopping_list.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+                Intent intent = new Intent(activity, shopping.class);
+                startActivity(intent);
+        }
+    });
 
     }
 
@@ -102,54 +109,65 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onResume() {
         refreshList();
         super.onResume();
-        preferencesWorker pref = new preferencesWorker(getSharedPreferences("Color", MODE_PRIVATE),this);
+        preferencesWorker pref = new preferencesWorker(getSharedPreferences("Color", MODE_PRIVATE), this);
         COLORS.setColorPrimary(pref.loadPreferences(0));
         COLORS.setColorSecondary(pref.loadPreferences(1));
         COLORS.setColorAccent(pref.loadPreferences(2));
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) tintStatusBar();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) tintStatusBar();
         dashboard_toolbar.setBackgroundColor(COLORS.getColorSecondary());
         fab_dashboard.setBackgroundTintList(ColorStateList.valueOf(COLORS.getColorSecondary()));
     }
-    public boolean preferences(MenuItem v){
+
+    public boolean preferences(MenuItem v) {
         Intent intent = new Intent(activity, preferencesActivity.class);
         startActivity(intent);
         return true;
     }
+
     public boolean aboutUS(MenuItem v) {
         Intent intent = new Intent(activity, activityAboutUs.class);
         startActivity(intent);
         return true;
     }
+
+    public void goToday(MenuItem v) {
+        Intent intent = new Intent(activity, today.class);
+        startActivity(intent);
+    }
+
     static public boolean check = false;
     boolean check_block = false;
-    void isAllChecked(boolean checker){
-        if(!checker) {
+
+    void isAllChecked(boolean checker) {
+        if (!checker) {
             check_block = true;
             check = false;
-        }else if(!check_block){
+        } else if (!check_block) {
             check = true;
         }
     }
+
     void setChecked(DashboardAdapter.ViewHolder holder, ToDo todo, boolean isChecked) {
         Log.d("TABLE", "Trying " + todo.getName());
         if (isChecked) {
             holder.toDoName.setPaintFlags(holder.toDoName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         } else holder.toDoName.setPaintFlags(holder.toDoName.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
     }
+
     public void getToDoDone(int position) {
         ArrayList<ToDo> ar = dbHandler.getToDos();
         boolean checked;
-            List<ToDoItem> thisItem = dbHandler.getToDoItems(ar.get(position).getId());
-            checked = true;
-            for (int j = 0; j < thisItem.size(); j++) {
+        List<ToDoItem> thisItem = dbHandler.getToDoItems(ar.get(position).getId());
+        checked = true;
+        for (int j = 0; j < thisItem.size(); j++) {
+            Log.d("TABLE", thisItem.get(j).getItemName() + thisItem.get(j).isCompleted());
+            if (!thisItem.get(j).isCompleted()) {
+                checked = false;
                 Log.d("TABLE", thisItem.get(j).getItemName() + thisItem.get(j).isCompleted());
-                if (!thisItem.get(j).isCompleted()) {
-                    checked = false;
-                    Log.d("TABLE", thisItem.get(j).getItemName() + thisItem.get(j).isCompleted());
-                }
             }
-            setChecked(thisHolder.get(position),ar.get(position), checked);
-            isAllChecked(checked);
+        }
+        setChecked(thisHolder.get(position), ar.get(position), checked);
+        isAllChecked(checked);
     }
 
     public void updateToDo(final ToDo toDo) {
@@ -189,8 +207,8 @@ public class DashboardActivity extends AppCompatActivity {
         DashboardAdapter(DashboardActivity activity, ArrayList<ToDo> list) {
             this.list = list;
             this.activity = activity;
-            Log.d("DashboardAdapter" , "DashboardAdapter");
-            Log.d("DashboardAdapter" , "list : " + list.size());
+            Log.d("DashboardAdapter", "DashboardAdapter");
+            Log.d("DashboardAdapter", "list : " + list.size());
         }
 
         @Override
@@ -256,7 +274,7 @@ public class DashboardActivity extends AppCompatActivity {
                                 }
                                 case R.id.menu_reset: {
                                     activity.dbHandler.updateToDoItemCompletedStatus(list.get(i).getId(), false);
-                                   getToDoDone(i);
+                                    getToDoDone(i);
                                     break;
                                 }
                             }
@@ -282,13 +300,16 @@ public class DashboardActivity extends AppCompatActivity {
                 toDoName = v.findViewById(R.id.tv_todo_name);
                 menu = v.findViewById(R.id.iv_menu);
             }
-            ViewHolder returnViewHold(){
+
+            ViewHolder returnViewHold() {
                 return this;
             }
         }
     }
+
     @TargetApi(21)
     void tintStatusBar() {
         getWindow().setStatusBarColor(COLORS.getColorSecondary());
     }
 }
+

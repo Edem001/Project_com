@@ -13,6 +13,10 @@
                 android:id="@+id/nav_info"
                 android:icon="@android:drawable/ic_dialog_info"
                 android:title="@string/info" android:onClick="aboutUS"/>
+        <item
+                android:id="@+id/nav_today"
+                android:onClick="goToday" android:icon="@android:drawable/ic_lock_idle_alarm"
+                android:title="@string/nav_today"></item>
 
     </group>
 </menu>

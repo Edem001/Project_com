@@ -12,6 +12,10 @@ public class preferencesWorker {
         sPref = pref;
         this.context = context;
     }
+    public preferencesWorker(SharedPreferences pref){
+        sPref = pref;
+        this.context = null;
+    }
 
     public void save(int key, String value, Context context) {
         SharedPreferences.Editor edit = sPref.edit();
@@ -28,6 +32,7 @@ public class preferencesWorker {
     }
 
     public int loadPreferences(int MODE) {
+        /** 0-2 colors, 3 ringtone type **/
         String resStr = sPref.getString(MODE + "", "");
         if (resStr.equals("")) switch (MODE) {
             case 0:
@@ -37,17 +42,17 @@ public class preferencesWorker {
             case 2:
                 return context.getResources().getColor(R.color.colorAccent);
         }
+        if (resStr!= "")
         return Integer.parseInt(resStr);
+        else return  0;
     }
     public int loadPreferences(int MODE, int printSomethingHereForTimeAccess) {
         String resStr = sPref.getString(MODE + "", "");
         if (resStr.equals("")) switch (MODE) {
             case 0:
-                return context.getResources().getColor(R.color.colorPrimary);
+                return 0;
             case 1:
-                return context.getResources().getColor(R.color.colorPrimaryDark);
-            case 2:
-                return context.getResources().getColor(R.color.colorAccent);
+                return 0;
         }
         return Integer.parseInt(resStr);
     }
@@ -56,5 +61,9 @@ public class preferencesWorker {
         if (resStr.equals("")) resStr = "false";
         return resStr;
     }
-
+    public int loadPreferencesNoContext(int MODE){
+        String resStr = sPref.getString(MODE+"", "");
+        if (resStr == "") return 0;
+        else return Integer.parseInt(resStr);
+    }
 }

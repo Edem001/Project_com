@@ -5,15 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.example.students.todolist_fixed.DTO.ShoppingItem;
 import com.example.students.todolist_fixed.DTO.ToDo;
 import com.example.students.todolist_fixed.DTO.ToDoItem;
+import com.example.students.todolist_fixed.DTO.TodayItem;
 
 import java.util.ArrayList;
 
 import static com.example.students.todolist_fixed.Const.*;
 
 public class DBHandler extends SQLiteOpenHelper {
-
 
     public DBHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -32,9 +33,24 @@ public class DBHandler extends SQLiteOpenHelper {
                         COL_TODO_ID + " integer," +
                         COL_ITEM_NAME + " varchar," +
                         COL_IS_COMPLETED + " integer)";
+        String createShoppingTable = "create table " + TABLE_SHOPPING +" (" +
+                COL_ID + " integer primary key autoincrement," +
+                COL_CREATED_AT + " datetime default CURRENT_TIMESTAMP," +
+                COL_ITEM_DESCRIPTION + " text not null," +
+                COL_PRICE + " float not null)";
+
+        String createTodayTable = "CREATE TABLE " + TABLE_TODAY + " (" +
+                COL_ID + " integer PRIMARY KEY AUTOINCREMENT," +
+                COL_CREATED_AT + " datetime DEFAULT CURRENT_TIMESTAMP," +
+                COL_TODO_ID + " integer," +
+                COL_ITEM_NAME + " text not null," +
+                COL_IS_COMPLETED + " integer)";
+
 
         db.execSQL(createToDoTable);
         db.execSQL(createToDoItemTable);
+        db.execSQL(createShoppingTable);
+        db.execSQL(createTodayTable);
     }
 
     @Override
@@ -50,12 +66,32 @@ public class DBHandler extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    boolean addShopping(ShoppingItem shoppingItem){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COL_ITEM_DESCRIPTION, shoppingItem.getItemName());
+        long result = db.insert(TABLE_SHOPPING, null, cv);
+        return result != -1;
+    }
+
 
     void updateToDo(ToDo todo) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_NAME, todo.getName());
         db.update(TABLE_TODO, cv, COL_ID + "=?", new String[]{String.valueOf(todo.getId())});
+    }
+
+    void updateShopping(ShoppingItem shopItem){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COL_ITEM_DESCRIPTION, shopItem.getItemName());
+        db.update(TABLE_SHOPPING, cv, COL_ID + "=?", new String[]{String.valueOf(shopItem.getId())});
+
+    }
+
+    void updateToday(TodayItem todayItem){
+
     }
 
     void deleteToDo(Long todoId) {
@@ -139,5 +175,16 @@ public class DBHandler extends SQLiteOpenHelper {
 
         queryResult.close();
         return result;
+    }
+    /*Now something custom begins*/
+    void addShoppingItem(){}
+    void deleteShoppingItem(){}
+    ArrayList<ShoppingItem> getShoppingItems(){
+        return null;
+    }
+    void addTodayItem(){}
+    void deleteTodayItem(){}
+    ArrayList<TodayItem> getTodayItems(){
+        return null;
     }
 }

@@ -5,7 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".notificationsSettings">
+        tools:context=".notificationsSettings"
+        android:orientation="vertical">
     <CheckBox
             android:layout_width="match_parent"
             android:layout_height="65dp"
@@ -21,5 +22,14 @@
             android:layout_width="match_parent"
             android:textSize="24sp"
             app:layout_constraintTop_toBottomOf="@+id/checkBox" android:clickable="true"/>
+    <Button
+            android:text="Test notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/test_butt" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/selected_time_display"
+            android:onClick="makeTestNotification"
+            app:layout_constraintStart_toStartOf="parent"/>
+
 
 </android.support.constraint.ConstraintLayout>

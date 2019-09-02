@@ -5,7 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activityAboutUs">
+        tools:context=".activityAboutUs"
+        android:orientation="vertical">
 
     <ScrollView
             android:layout_width="0dp"
@@ -14,7 +15,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintTop_toBottomOf="@+id/imageView" app:layout_constraintVertical_bias="0.0"
-            android:scrollbars="none" >
+            android:scrollbars="none">
         <TextView
                 android:text="@string/aboutUS"
                 android:layout_width="match_parent"
@@ -28,12 +29,18 @@
                 android:isScrollContainer="true"/>
     </ScrollView>
     <ImageView
-            android:layout_width="411dp"
-            android:layout_height="427dp" app:srcCompat="@drawable/easter_egg" android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="309dp" app:srcCompat="@drawable/team" android:id="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintVertical_bias="0.0" android:clickable="true"/>
+    <Button
+            android:layout_width="24dp"
+            android:layout_height="18dp"
+            android:id="@+id/secretBTN"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView3" android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="@+id/scrollView3"/>
 
 
 </android.support.constraint.ConstraintLayout>

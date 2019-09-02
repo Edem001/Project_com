@@ -2,11 +2,14 @@ package com.example.students.todolist_fixed;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         tempAccentColor = COLORS.setColorAccent(pref.loadPreferences(Const.TAKE_ACCENT));
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             tintStatusBar();
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
 
         pref = new preferencesWorker(getSharedPreferences("Notifications", MODE_PRIVATE),this);
         TIME.setHour(pref.loadPreferences(0,1));

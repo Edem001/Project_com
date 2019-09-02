@@ -6,7 +6,7 @@
         android:orientation="vertical"
         android:id="@+id/preferences_layout">
         <Button android:layout_height="wrap_content" android:layout_width="wrap_content"
-                android:hint="Pick color"
+                android:hint="@string/pick_color"
                 android:background="@color/colorPrimaryDark" android:layout_marginTop="22dp"
                 android:layout_below="@+id/col_pick_button_primary" android:id="@+id/col_pick_button_secondary"
                 android:textColor="@android:color/black"
@@ -14,7 +14,7 @@
                 android:layout_alignLeft="@+id/col_pick_button_primary"
                 android:layout_alignStart="@+id/col_pick_button_primary"/>
         <TextView
-                android:text="Pick Secondary Color"
+                android:text="@string/pick_secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="37dp" android:id="@+id/text_hint_secondary2"
                 android:layout_toEndOf="@+id/col_pick_button_primary"
@@ -36,14 +36,14 @@
                 app:title="@string/preferences"/>
         <Button android:layout_height="wrap_content" android:layout_width="wrap_content"
                 android:id="@+id/col_pick_button_primary"
-                android:hint="Pick color"
+                android:hint="@string/pick_color"
                 android:background="@color/colorPrimary" android:layout_marginTop="47dp"
                 android:layout_below="@+id/preferences_toolbar" android:textColor="@android:color/black"
                 android:textSize="14sp" android:layout_marginLeft="17dp" android:layout_marginStart="17dp"
                 android:layout_alignLeft="@+id/preferences_toolbar"
                 android:layout_alignStart="@+id/preferences_toolbar"/>
         <TextView
-                android:text="Pick Primary Color"
+                android:text="@string/pick_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="37dp" android:id="@+id/text_hint_primary"
                 android:layout_toEndOf="@+id/col_pick_button_primary"
@@ -53,7 +53,7 @@
                 android:layout_below="@+id/preferences_toolbar" android:textSize="24sp"
                 android:textColor="@android:color/black"/>
         <Button android:layout_height="wrap_content" android:layout_width="wrap_content"
-                android:hint="Pick color"
+                android:hint="@string/pick_color"
                 android:background="@color/colorAccent" android:layout_marginTop="22dp"
                 android:layout_below="@+id/col_pick_button_secondary" android:id="@+id/col_pick_button_accent"
                 android:textColor="@android:color/black"
@@ -61,7 +61,7 @@
                 android:layout_alignLeft="@+id/col_pick_button_primary"
                 android:layout_alignStart="@+id/col_pick_button_primary"/>
         <TextView
-                android:text="Pick Third Color"
+                android:text="@string/pick_accent"
                 android:layout_width="wrap_content"
                 android:layout_height="37dp" android:id="@+id/text_hint_accent"
                 android:layout_toEndOf="@+id/col_pick_button_primary"

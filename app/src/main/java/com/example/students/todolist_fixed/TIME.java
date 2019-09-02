@@ -6,7 +6,6 @@ public class TIME {
     static int hour_this, minute_this;
     static boolean checker;
     static Context context;
-    protected static final NotificationService service = new NotificationService();
 
     static public Context getContext(){ return context;}
     static public int getHour(){

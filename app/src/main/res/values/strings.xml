@@ -8,15 +8,14 @@
     <string name="info">Info</string>
     <string name="preferences">Preferences</string>
     <string name="dashboard">Dashboard</string>
-    <string name="aboutUS">Greetings, dear user. We are group of developers-novices from Lviv
-        Politechnic National
-        University (Ukraine).
-        Our group: Rubakha Danylo(talks too much), Atamuratov Edem(poor coder, which was a person, who were given
-        inspiration to whole team), Mykhailiuk
-        Volodymyr(he helped us very much, found some open-source libraries), Andriy Mykytyn(our animator, do not worry,
-        you will not see his animation in this program,
-        at least, while i am typing this) and finally, Pavlo Furd(he is out secret weapon). We are students from CS-105
-        grop. Thank you for reading this article.
+    <string name="aboutUS">Greetings, dear user. We are group of developers-novices from Lviv Polytechnic National
+        University (Ukraine). Our group: Rubakha Danylo(talks too much), Atamuratov Edem(poor coder, which was a person,
+        who were given
+        inspiration to whole team), Mykhailiuk Volodymyr(he helped us very much, found some open-source libraries),
+        Andriy Mykytyn(our animator, do not worry,
+        you will not see his animation in this program, at least, while i am typing this) and finally, Pavlo Furd(he is
+        out secret weapon). We are students from CS-105
+        group. Thank you for reading this article.
     </string>
     <string name="return_to_default">Set to default</string>
     <string name="confirm_button">Confirm</string>
@@ -36,7 +35,14 @@
     <string name="add_title_item">Add ToDo item</string>
     <string name="update_todo_item">Update ToDo item</string>
     <string name="delete_dial_todo">Do you want to delete this item?</string>
-    <string name="time_chosen">Time choosen</string>
-    <string name="Hello">Hello</string>
-    <string name="side_menu">This is side menu</string>
+    <string name="time_chosen">Time chosen</string>
+    <string name="Hello">Contact with developer</string>
+    <string name="side_menu" translatable="false">atamuratov.edem@gmail.com</string>
+    <string name="pick_color">Pick color</string>
+    <string name="pick_secondary">Secondary color</string>
+    <string name="pick_primary">Primary color</string>
+    <string name="pick_accent">Third color</string>
+    <string name="nav_today">Tasks for today</string>
+    <string name="shopping">Shopping list</string>
+    <string name="shopping_header">Your shopping items</string>
 </resources>
