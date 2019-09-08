@@ -7,11 +7,11 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.students.todolist_fixed"
+        applicationId "com.example.students.todolist_fixed_v2"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
-        versionName "1.1.2"
+        versionName "2.0.1_1 hotfix"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

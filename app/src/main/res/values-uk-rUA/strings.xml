@@ -4,8 +4,8 @@
     <string name="reset">Скинути</string>
     <string name="edit">Редагувати</string>
     <string name="delete">Видалити</string>
-    <string name="mark_as_completed">Помітити виконаним</string>
-    <string name="info">Информація</string>
+    <string name="mark_as_completed">Позначити виконаним</string>
+    <string name="info">Інформація</string>
     <string name="preferences">Налаштування</string>
     <string name="dashboard">Задачі</string>
     <string name="return_to_default">Скинути</string>
@@ -43,4 +43,14 @@
     <string name="nav_today">Завдання на сьогодні</string>
     <string name="shopping">Список покупок</string>
     <string name="shopping_header">Товары для покупки</string>
+    <string name="delete_dial_shopping">Ви впевнені, що хочете видалити цей предмет?</string>
+    <string name="total_shopping">"Все разом: "</string>
+    <string name="non_filled_fields_warning">Назва, ціна та кількість - обов\'язкові поля!</string>
+    <string name="db_write_error">Помилка запису в базу даних</string>
+    <string name="shop_dial_head">Введіть назву</string>
+    <string name="hint_name">Назву сюди</string>
+    <string name="hint_price">Ціну сюди</string>
+    <string name="enter_amount">Кількість</string>
+    <string name="enter_price">Ціна</string>
+    <string name="add_an_item">Додати предмет</string>
 </resources>

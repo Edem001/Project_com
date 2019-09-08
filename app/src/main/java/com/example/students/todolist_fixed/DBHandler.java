@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import com.example.students.todolist_fixed.DTO.ShoppingItem;
 import com.example.students.todolist_fixed.DTO.ToDo;
 import com.example.students.todolist_fixed.DTO.ToDoItem;
@@ -37,7 +38,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 COL_ID + " integer primary key autoincrement," +
                 COL_CREATED_AT + " datetime default CURRENT_TIMESTAMP," +
                 COL_ITEM_DESCRIPTION + " text not null," +
-                COL_PRICE + " float not null)";
+                COL_PRICE + " float not null, " +
+                COL_AMOUNT + " integer not null, " +
+                COL_IS_BOUGHT + " integer)";
 
         String createTodayTable = "CREATE TABLE " + TABLE_TODAY + " (" +
                 COL_ID + " integer PRIMARY KEY AUTOINCREMENT," +
@@ -66,15 +69,6 @@ public class DBHandler extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    boolean addShopping(ShoppingItem shoppingItem){
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(COL_ITEM_DESCRIPTION, shoppingItem.getItemName());
-        long result = db.insert(TABLE_SHOPPING, null, cv);
-        return result != -1;
-    }
-
-
     void updateToDo(ToDo todo) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -83,10 +77,13 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     void updateShopping(ShoppingItem shopItem){
-        SQLiteDatabase db = getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_ITEM_DESCRIPTION, shopItem.getItemName());
-        db.update(TABLE_SHOPPING, cv, COL_ID + "=?", new String[]{String.valueOf(shopItem.getId())});
+        cv.put(COL_PRICE, shopItem.getItemPrice());
+        cv.put(COL_AMOUNT, shopItem.getAmount());
+        cv.put(COL_IS_BOUGHT, shopItem.getIsBoughtI());
+        Log.d("SHOP_LIST_UPDATE",db.update(TABLE_SHOPPING, cv, COL_ID + "=?", new String[]{String.valueOf(shopItem.getId())})+"");
 
     }
 
@@ -142,7 +139,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public boolean addToDoItem(ToDoItem item) {
-        SQLiteDatabase db = getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_ITEM_NAME, item.getItemName());
         cv.put(COL_TODO_ID, item.getToDoId());
@@ -177,10 +174,43 @@ public class DBHandler extends SQLiteOpenHelper {
         return result;
     }
     /*Now something custom begins*/
-    void addShoppingItem(){}
-    void deleteShoppingItem(){}
+    boolean addShoppingItem(ShoppingItem item){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COL_ITEM_DESCRIPTION, item.getItemName());
+        cv.put(COL_PRICE, item.getItemPrice());
+        cv.put(COL_AMOUNT, item.getAmount());
+
+        long result = db.insert(TABLE_SHOPPING, null, cv);
+        return result != -1;
+    }
+    boolean deleteShoppingItem(long id){
+        SQLiteDatabase db = getWritableDatabase();
+        int result = db.delete(TABLE_SHOPPING, COL_ID + "=?", new String[]{String.valueOf(id)});
+        if(result < 1) return true;
+        else return false;
+    }
     ArrayList<ShoppingItem> getShoppingItems(){
-        return null;
+        ArrayList<ShoppingItem> result = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor queryResult = db.rawQuery("SELECT * from " + TABLE_SHOPPING, null);
+        if (queryResult.moveToFirst()) {
+            do {
+                ShoppingItem item = new ShoppingItem();
+                item.setId(queryResult.getLong(queryResult.getColumnIndex(COL_ID)));
+                item.setItemName(queryResult.getString(queryResult.getColumnIndex(COL_ITEM_DESCRIPTION)));
+                item.setItemPrice(queryResult.getLong(queryResult.getColumnIndex(COL_PRICE)));
+                item.setAmount(queryResult.getInt(queryResult.getColumnIndex(COL_AMOUNT)));
+                boolean bool;
+                int i = queryResult.getInt(queryResult.getColumnIndex(COL_IS_BOUGHT));
+                if(i == 1) bool = true;
+                else bool = false;
+                item.setBoughtStatus(bool);
+                result.add(item);
+            } while (queryResult.moveToNext());
+        }
+        queryResult.close();
+        return result;
     }
     void addTodayItem(){}
     void deleteTodayItem(){}

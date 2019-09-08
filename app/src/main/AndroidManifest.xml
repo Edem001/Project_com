@@ -14,7 +14,8 @@
             android:supportsRtl="true"
             android:testOnly="false"
             android:theme="@style/AppTheme">
-        <activity android:name=".shopDialogActivity" android:theme="@android:style/Theme.Dialog">
+        <activity android:name=".shopDialogActivity" android:theme="@style/ThemeDialog" android:excludeFromRecents="false"
+        >
         </activity>
         <activity android:name=".today">
         </activity>

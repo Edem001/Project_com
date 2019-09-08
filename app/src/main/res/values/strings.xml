@@ -45,4 +45,18 @@
     <string name="nav_today">Tasks for today</string>
     <string name="shopping">Shopping list</string>
     <string name="shopping_header">Your shopping items</string>
+    <string name="delete_dial_shopping">Do you want to delete this item?</string>
+    <string name="currency_hrn" translatable="false">₴</string>
+    <string name="total_shopping">Total: </string>
+    <string name="non_filled_fields_warning">Name, price and amount are required!</string>
+    <string name="db_write_error">Error writing DB</string>
+    <string name="shop_dial_head">Enter name</string>
+    <string name="hint_name">Name here</string>
+    <string name="enter_price">Enter price</string>
+    <string name="hint_price">Price here</string>
+    <string name="enter_amount">Enter amount</string>
+    <string name="minus" translatable="false">-</string>
+    <string name="plus" translatable="false">+</string>
+    <string name="add_an_item">Add an item</string>
+
 </resources>

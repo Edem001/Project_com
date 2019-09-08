@@ -19,7 +19,7 @@
             android:contentDescription="FUCK"
             android:paddingTop="10dp"
             app:srcCompat="@mipmap/ic_launcher_round"
-    />
+            android:paddingStart="25sp"/>
 
 
     <TextView
@@ -27,12 +27,14 @@
             android:layout_height="wrap_content"
             android:paddingTop="0dp"
             android:text="@string/Hello"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:textColor="@android:color/black"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:textColor="@android:color/black"
+            android:paddingStart="25sp"/>
 
     <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/side_menu" android:textColor="@android:color/primary_text_light"/>
+            android:text="@string/side_menu" android:textColor="@android:color/primary_text_light"
+            android:paddingStart="25sp"/>
 
 </LinearLayout>

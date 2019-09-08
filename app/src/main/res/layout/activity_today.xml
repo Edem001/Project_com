@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,4 +7,12 @@
         android:layout_height="match_parent"
         tools:context=".today">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+            android:text="This page is currently under construction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="398dp"
+            tools:layout_editor_absoluteX="96dp" android:id="@+id/textView4" android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp" android:textSize="30sp" android:layout_marginBottom="460dp"
+            android:gravity="center"/>
+</RelativeLayout>

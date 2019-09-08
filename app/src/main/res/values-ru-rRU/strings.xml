@@ -41,5 +41,15 @@
     <string name="pick_accent">Третий цвет</string>
     <string name="nav_today">Задания на сегодня</string>
     <string name="shopping">Список покупок</string>
-    <string name="shopping_header">Товари для покупки</string>
+    <string name="shopping_header">Товары для покупки</string>
+    <string name="delete_dial_shopping">"Вы точно хотите удалить этот предмет? "</string>
+    <string name="total_shopping">"Итог: "</string>
+    <string name="db_write_error">Ошибка записи в базу данных</string>
+    <string name="non_filled_fields_warning">Название, цена и количество - обязательные поля!</string>
+    <string name="shop_dial_head">Введите название</string>
+    <string name="hint_name">Название сюда</string>
+    <string name="enter_price">Цена</string>
+    <string name="hint_price">Цену сюда</string>
+    <string name="enter_amount">Количество</string>
+    <string name="add_an_item">Добавить предмет</string>
 </resources>
