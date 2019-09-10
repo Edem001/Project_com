@@ -20,22 +20,27 @@
 
 
     <android.support.v7.widget.RecyclerView
-            android:layout_below="@+id/dashboard_toolbar"
             android:id="@+id/rv_dashboard"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_marginTop="0dp"/>
+            android:layout_height="675dp"
+            android:layout_above="@+id/shop_butt"
+            android:layout_below="@+id/dashboard_toolbar"
+            android:layout_marginTop="0dp" />
 
 
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_above="@+id/shop_butt"
             android:layout_alignParentEnd="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="126dp"
+            android:layout_marginBottom="2dp"
             android:src="@drawable/plus"
-            app:backgroundTint="@color/colorPrimaryDark" android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp" android:layout_marginEnd="10dp" android:layout_marginRight="126dp"
-            android:layout_above="@+id/shop_butt" android:layout_marginBottom="2dp"/>
+            app:backgroundTint="@color/colorPrimaryDark" />
     <Button
             android:layout_width="43dp"
             android:layout_height="40dp"
@@ -44,12 +49,14 @@
             android:layout_alignLeft="@+id/dashboard_toolbar"
             android:layout_marginLeft="6dp" android:layout_alignTop="@+id/dashboard_toolbar"
             android:layout_marginTop="6dp" android:clickable="true"/>
+
     <Button
-            android:text="@string/shopping"
+            android:id="@+id/shop_butt"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" android:id="@+id/shop_butt"
-            android:layout_marginBottom="0dp" android:layout_alignBottom="@+id/rv_dashboard"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
             android:gravity="center_horizontal|fill_vertical"
-    />
+            android:text="@string/shopping" />
 
 </RelativeLayout>

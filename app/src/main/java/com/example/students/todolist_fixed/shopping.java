@@ -100,6 +100,7 @@ public class shopping extends AppCompatActivity {
                 X = itemView.findViewById(R.id.X);
                 currency = itemView.findViewById(R.id.rv_shopping_currency);
                 total = itemView.findViewById(R.id.rv_shopping_summary);
+                setSummary(list);
             }
             ViewHolder returnHolder(){ return this; }
         }
@@ -107,6 +108,7 @@ public class shopping extends AppCompatActivity {
         @NonNull
         @Override
         public ShoppingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+            setSummary(dbHandler.getShoppingItems());
             return new ViewHolder(LayoutInflater.from(activity).inflate(R.layout.rv_shopping_child, viewGroup, false));
         }
 
@@ -118,10 +120,6 @@ public class shopping extends AppCompatActivity {
             vH.itemCheckBox.setChecked(list.get(i).getBoughtStatus());
             vH.itemCheckBox.setButtonTintList(ColorStateList.valueOf(COLORS.getColorAccent()));
             vH.total.setText((list.get(i).getItemPrice()*list.get(i).getAmount())+"");
-
-            if(!list.get(i).getBoughtStatus())
-            result += list.get(i).getItemPrice()*list.get(i).getAmount();
-            setSummary(result);
 
             if(list.get(i).getBoughtStatus()) tint(Color.GREEN, vH);
             else tint(Color.RED, vH);
@@ -136,15 +134,13 @@ public class shopping extends AppCompatActivity {
                         tsi.setId(list.get(i).getId());
                         dbHandler.updateShopping(tsi);
                         tint(Color.GREEN,vH);
-                        result -= list.get(i).getItemPrice() * list.get(i).getAmount();
-                        setSummary(result);
+                        setSummary(dbHandler.getShoppingItems());
                     }else {
                         ShoppingItem tsi = new ShoppingItem(list.get(i).getItemName(), list.get(i).getItemPrice(), list.get(i).getAmount(), false);
                         tsi.setId(list.get(i).getId());
                         dbHandler.updateShopping(tsi);
                         tint(Color.RED, vH);
-                        result += list.get(i).getItemPrice() * list.get(i).getAmount();
-                        setSummary(result);
+                        setSummary(dbHandler.getShoppingItems());
                     }
                 }
             });
@@ -168,6 +164,7 @@ public class shopping extends AppCompatActivity {
                                 activity.dbHandler.deleteShoppingItem(list.get(position).getId());
                                     shopHolder.remove(position);
                                     activity.refreshList();
+                                    setSummary(list);
                             }
                         });
                         dialog.show();
@@ -175,7 +172,12 @@ public class shopping extends AppCompatActivity {
             });
 
         }
-        public void setSummary(float result) {
+        public void setSummary(ArrayList<ShoppingItem> list) {
+            float result = 0;
+            for (int i = 0; i < list.size(); i++){
+                if (!list.get(i).getBoughtStatus())
+                result += list.get(i).getItemPrice() * list.get(i).getAmount();
+            }
             TextView total = findViewById(R.id.shopping_total);
             String a = String.format("%.2f", result);
             total.setText(a + getString(R.string.currency_hrn));
